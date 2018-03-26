@@ -29,10 +29,10 @@ resource "oci_core_instance" "AppAD1" {
     user_data           = "${base64encode(file(var.AppBootStrap))}"
   }
 
-  # provisioner "file" {
-  #   source      = "flask/main.py"
-  #   destination = "~"
-  # }
+  provisioner "file" {
+    source      = "./pythonTestScript/scenario-1.py"
+    destination = "~/scenario-1.py"
+  }
 }
 
 resource "oci_core_instance" "MemcachedAD1" {
